@@ -3,12 +3,16 @@
 
 
 <p>Find me in app/views/pages/home.html.erb</p>
-
-
-
-
-
-
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <% @memes.each do |meme| %>
+      <div>
+        <%= meme.description %>
+        <%= meme.price %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 
 
