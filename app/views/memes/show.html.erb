@@ -1,0 +1,12 @@
+<h1 class="text-center text-info">Information about <em>meme</em> <%= @meme.id %></h1>
+
+    <div class="border">
+        <img src="/app/assets/images/html, css bird meme.jpg" alt="CSS bird meme">
+        <p>Description: <%= @meme.description %></p>
+        <p>Price: <%=  @meme.price %></p>
+        <p>Belongs to User: <%= @meme.user_id %></p>
+    </div>
+
+<h2 class="text-primary m-4"><%= link_to "Go back to memes index page", memes_path %></h2>
+
+<div class="co-12 col-sm-6 col-md-4.mb.3">H</div>
