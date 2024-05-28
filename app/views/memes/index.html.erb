@@ -1,0 +1,28 @@
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-info">
+    <h1>Save any kind of meme</h1>
+    <h3 class="typed-js" data-controller="typed-js"></h3>  <!-- This h3 tag if for JS? Not doing anything now -->
+  </div>
+</div>
+
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">⬇️ Memes for rent!!! ⬇️</h3>
+    <%= link_to "As a Joker, create a new meme to rent!", new_meme_path, class: "btn btn-flat" %>
+  </div>
+
+  <div class="row">
+    <% @memes.each do |meme| %>
+      <div class="co-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to "See meme in more detail here", meme_path(meme.id), class:"text-decoration-none" %>
+          <div class="card-category" data-aos="zoom-in"
+          style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+          url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : asset_path('list_background.jpg') %>)">
+            <%= meme.description %>
+            <%= meme.price %>
+            <%= meme.user_id %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
