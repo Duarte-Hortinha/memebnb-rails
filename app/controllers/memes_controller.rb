@@ -15,6 +15,7 @@ class MemesController < ApplicationController
 
   def create
     @meme = Meme.new(meme_params)
+    @meme.user = current_user
     if @meme.save
       redirect_to meme_path(@meme)  # correct, goes to show page but @meme has to yield ID
     else
@@ -34,6 +35,6 @@ class MemesController < ApplicationController
   # end
 
   def meme_params
-    params.require(:meme).permit(:price, :description, :user_id) #, :image_url)
+    params.require(:meme).permit(:price, :description, :photo) # added photo because of cloudinary
   end
 end

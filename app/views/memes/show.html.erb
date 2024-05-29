@@ -1,7 +1,8 @@
 <h1 class="text-center text-info">Information about <em>meme</em> <%= @meme.id %></h1>
 
     <div class="border">
-        <img src="bird-meme.jpg" alt="CSS nude bird meme">
+        <!-- <img src="bird-meme.jpg" alt="CSS nude bird meme"> -->
+        <span class="cloudinary-image"><%= cl_image_tag @meme.photo.key, height: 300, width: 400, crop: :fill %></span>
         <p>Description: <%= @meme.description %></p>
         <p>Price: <%=  @meme.price %></p>
         <p>Belongs to User: <%= @meme.user_id %></p>
