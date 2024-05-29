@@ -1,14 +1,27 @@
-
-
-.my-navbar {
-  display: flex;
+.navbar-lewagon {
   justify-content: space-between;
-  align-items: stretch;
-  height: 50px;
-  padding: 5px 20px;
-  margin-top: 10px;
+  background: white;
 }
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+// .my-navbar {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: stretch;
+//   height: 50px;
+//   padding: 5px 20px;
+//   margin-top: 10px;
+// }
 .navbar_img {
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
 }
 
@@ -18,6 +31,7 @@
   color: white;
   text-decoration: none;
   font-size: larger;
+  border-radius: 5px;
 }
 // .navbar_image{
 //   display: flex;
