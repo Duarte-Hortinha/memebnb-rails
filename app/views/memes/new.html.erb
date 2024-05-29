@@ -7,8 +7,7 @@
           <%= f.input :price, placeholder: '$1,000,000' %>
           <!--<span><%= f.input :image, as: :file %></span>-->
           <%= f.input :description, placeholder: 'This meme is garbage, no one will laugh at it' %>
-          <%= f.input :user_id, placeholder: 'Manual insert user ID' %>
-          <%= render "partials/form" %> 
+          <%= f.input :photo, as: :file %>
           <%= f.submit class: 'btn btn-flat border border-danger rounded-pill'  %>
         <% end %>
       </div>
