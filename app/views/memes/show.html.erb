@@ -1,12 +1,28 @@
-<h1 class="text-center text-info">Information about <em>meme</em> <%= @meme.id %></h1>
-
-    <div class="border">
-        <img src="bird-meme.jpg" alt="CSS nude bird meme">
-        <p>Description: <%= @meme.description %></p>
-        <p>Price: <%=  @meme.price %></p>
-        <p>Belongs to User: <%= @meme.user_id %></p>
+<div class="container" id="showcontainer">
+  <div id="showcard">
+    <h5 class="card-title"><strong>Meme title comes here</strong></h5>
+    <div class="card" style="width: 40rem; height; 50rem">
+      <img src="https://img.freepik.com/free-vector/hand-drawn-flork-meme-illustration_23-2150893459.jpg?w=996&t=st=1716992870~exp=1716993470~hmac=ad4e92c3551f943de8527b53cde0ca965b97028274d81f7ab908f0cd539f5677" class="card-img-top" alt="cloudinary img">
+      <div class="card-body" id="showcardbody">
+        <p class="card-text"><%= @meme.description%></p>
+        <div id="credentials">
+          <p class="card-text" id="text1">Price: $<%=  @meme.price %></p>
+          <p class="card-text">User ID: <%=  @meme.user_id %></p>
+        </div>
+      </div>
     </div>
-
-<h2 class="text-primary m-4"><%= link_to "Go back to memes index page", memes_path %></h2>
-
-<div class="co-12 col-sm-6 col-md-4.mb.3">H</div>
+  </div>
+  <div id="checkcontainer">
+    <div class="card" id="checkout"style="width: 18rem;">
+      <div class="card-header">
+        Rent this meme
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Start date</li>
+        <li class="list-group-item">End date (will be simple form)</li>
+      </ul>
+      <a href="#" class="btn btn-primary">Purchase this meme (link to request)</a>
+    </div>
+    <%= link_to "Go back to memes index page", memes_path, class:"btn btn-info" %>
+  </div>
+</div>
