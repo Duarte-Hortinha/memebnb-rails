@@ -51,6 +51,8 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 
 gem "devise" # added
+gem "dotenv-rails" # secret keys stuff
+gem "cloudinary"
 
 group :development, :test do
   gem "dotenv-rails"

@@ -8,6 +8,7 @@
           <!--<span><%= f.input :image, as: :file %></span>-->
           <%= f.input :description, placeholder: 'This meme is garbage, no one will laugh at it' %>
           <%= f.input :user_id, placeholder: 'Manual insert user ID' %>
+          <%= render "partials/form" %> 
           <%= f.submit class: 'btn btn-flat border border-danger rounded-pill'  %>
         <% end %>
       </div>
