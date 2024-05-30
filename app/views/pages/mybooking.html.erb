@@ -1,3 +1,8 @@
 <h1>My Bookings</h1>
 
 <h2>To fill with the bookings of the user - in relation to other people's memes</h2>
+<ul>
+<% @mybookings.each do |booking| %>
+  <li><%= booking.meme.title %>-<%= booking.start_date %>-<%= booking.start_date %></li>
+<% end %>
+</ul>

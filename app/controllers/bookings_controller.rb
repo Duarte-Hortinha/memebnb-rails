@@ -8,18 +8,16 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def new
-    @booking = Booking.new
-  end
-
   def create
+    @meme = Meme.find(params[:meme_id])
     @booking = Booking.new(booking_params)
+    @booking.meme = @meme
     @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(@booking)  # correct, goes to show page but @meme has to yield ID
+      redirect_to mybookings_path  # correct, goes to show page but @meme has to yield ID
     else
-      # render :new, status: :unprocessable_entity
-      redirect_to memes_path, status: :see_other
+      render "memes/show", status: :unprocessable_entity
+      flash[:alert] = "Booking unsuccessful, please try again!"
     end
   end
 
