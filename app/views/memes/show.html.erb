@@ -2,7 +2,9 @@
 
     <div class="border">
         <!-- <img src="bird-meme.jpg" alt="CSS nude bird meme"> -->
+        <% if @meme.photo.attached? %>
         <span class="cloudinary-image"><%= cl_image_tag @meme.photo.key, height: 300, width: 400, crop: :fill %></span>
+        <% end %>
         <p>Description: <%= @meme.description %></p>
         <p>Price: <%=  @meme.price %></p>
         <p>Belongs to User: <%= @meme.user_id %></p>
