@@ -11,7 +11,7 @@ class MemesController < ApplicationController
 
   def new
     if current_user.nil?
-      redirect_to new_user_session_path, notice: "You are not logged in!"
+      redirect_to new_user_session_path, notice: "You are not logged in!"  # switch with pop up also on Friday 
     end
     @meme = Meme.new
   end
