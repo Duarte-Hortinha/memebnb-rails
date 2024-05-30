@@ -14,17 +14,21 @@
   <div class="row">
     <% @memes.each do |meme| %>
     <div class="col-4 mb-3">
-      <div class="card" style="width: 18rem;">
-      <% if meme.photo.key %>
-        <%= cl_image_tag meme.photo.key, crop: :fill, class: 'w-100' %>
-      <% else %>
-        <%= image_tag('bird-meme.jpg') %>
-      <% end  %>
-        <div class="card-body">
-          <h5 class="card-title"><%= meme.description %></h5>
-          <div class="card-text">
-            <p>Price: <%=  meme.price %></p>
-            <p>Belongs to User: <%= meme.user_id %></p>
+        <div class="card">
+          <div class="card-image">
+            <% if meme.photo.key %>
+              <%= cl_image_tag meme.photo.key, crop: :fill, class: 'w-100 h-100' %>
+            <% else %>
+              <%= image_tag('default-meme.jpg') %>
+            <% end  %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= meme.description %></h5>
+            <p class="card-text">$<%= meme.price %>
+            <div class="card-text">
+              <p>Belongs to <%= meme.user.email.split('@')[0] %></p>
+            </div>
+            <%= link_to "See detail here", meme_path(meme.id), class:"text-decoration-none btn btn-dark" %>
           </div>
           <%= link_to "See detail here", meme_path(meme.id), class:"text-decoration-none btn btn-primary" %>
         </div>
@@ -33,4 +37,3 @@
     <% end %>
   </div>
 </div>
-<h2 class="text-primary m-4"><%= link_to "Go back to landing page", root_path %></h2>
