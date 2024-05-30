@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 20px;
 }
 
 #showcardbody {
@@ -43,4 +43,11 @@
 
 #rentcardheader {
   margin: 0;
+}
+
+#bookingcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
