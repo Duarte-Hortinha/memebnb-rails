@@ -1,0 +1,46 @@
+#showcontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin: auto;
+  padding: 50px;
+  padding-left: 90px;
+}
+
+#showcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+#checkcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+#showcardbody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#credentials {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+}
+
+#text1 {
+  margin-bottom: 0;
+}
+
+#rentcardheader {
+  margin: 0;
+}

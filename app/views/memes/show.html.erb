@@ -1,15 +1,39 @@
-<h1 class="text-center text-info">Information about <em>meme</em> <%= @meme.id %></h1>
 
-    <div class="border">
-        <!-- <img src="bird-meme.jpg" alt="CSS nude bird meme"> -->
-        <% if @meme.photo.attached? %>
-        <span class="cloudinary-image"><%= cl_image_tag @meme.photo.key, height: 300, width: 400, crop: :fill %></span>
-        <% end %>
-        <p>Description: <%= @meme.description %></p>
-        <p>Price: <%=  @meme.price %></p>
-        <p>Belongs to User: <%= @meme.user_id %></p>
+<div class="container" id="showcontainer">
+  <div id="showcard">
+    <h5 class="card-title"><strong><%= @meme.title.capitalize %></strong></h5>
+    <div class="card" style="width: 30rem; height; 40rem">
+      <% if @meme.photo.key %>
+        <%= cl_image_tag @meme.photo.key, crop: :fill, class: 'w-100' %>
+      <% else %>
+        <%= image_tag('bird-meme.jpg') %>
+      <% end  %>
+      <div class="card-body" id="showcardbody">
+        <p class="card-text"><%= @meme.description%></p>
+        <div id="credentials">
+          <p class="card-text" id="text1"><strong>Price:</strong> $<%=  @meme.price %></p>
+          <p class="card-text"><strong>User ID: </strong><%=  @meme.user_id %></p>
+        </div>
+      </div>
+
     </div>
-
-<h2 class="text-primary m-4"><%= link_to "Go back to memes index page", memes_path %></h2>
-
-<div class="co-12 col-sm-6 col-md-4.mb.3">H</div>
+  </div>
+  <div id="checkcontainer">
+    <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
+      <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startDate" } } %>
+      <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endDate" } } %>
+      <%= f.submit 'Request this booking' %>
+    <% end %>
+    <%# <div class="card" id="checkout"style="width: 18rem;">
+      <div class="card-header d-flex justify-content-center">
+        <p id="rentcardheader"><strong>Rent this meme</strong></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Start date</li>
+        <li class="list-group-item">End date (will be simple form)</li>
+      </ul>
+      <a href="#" class="btn btn-primary">Purchase this meme (link to request)</a>
+    </div> %>
+    <%= link_to "Go back to memes index page", memes_path, class:"btn btn-info" %>
+  </div>
+</div>

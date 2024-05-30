@@ -1,6 +1,6 @@
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center">
-    <h1>BEST IT MEMES</h1>
+    <h1>BEST MEMES</h1>
     <h3 class="typed-js" data-controller="typed-js"></h3>  <!-- This h3 tag if for JS? Not doing anything now -->
   </div>
 </div>
@@ -15,7 +15,11 @@
     <% @memes.each do |meme| %>
     <div class="col-4 mb-3">
       <div class="card" style="width: 18rem;">
-        <%= image_tag("bird-meme.jpg") %>
+      <% if meme.photo.key %>
+        <%= cl_image_tag meme.photo.key, crop: :fill, class: 'w-100' %>
+      <% else %>
+        <%= image_tag('bird-meme.jpg') %>
+      <% end  %>
         <div class="card-body">
           <h5 class="card-title"><%= meme.description %></h5>
           <div class="card-text">
@@ -30,4 +34,3 @@
   </div>
 </div>
 <h2 class="text-primary m-4"><%= link_to "Go back to landing page", root_path %></h2>
-
