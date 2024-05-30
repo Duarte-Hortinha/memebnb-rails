@@ -3,7 +3,6 @@
 <div class="banner" style="background-image: url(https://images.unsplash.com/photo-1507808973436-a4ed7b5e87c9?q=80&w=2960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
   <div class="container">
     <h1 class="cover mb-4 d-flex align-items-center justify-content-center">Are you looking for a Tech meme?</h1>
-    <p class="cover mb-4 d-flex align-items-center justify-content-center">Rent the best tech meme</p>
    <div class="cover mb-4 d-flex align-items-center justify-content-center"><%= link_to "See all funny memes", memes_path, class:"text-decoration-none btn btn-dark " %></div>
   </div>
 </div>
@@ -24,6 +23,7 @@
           </div>
           <div class="card-body">
             <h5 class="card-title"><%= meme.description %></h5>
+            ! maximum satisfaction guarantee
             <div class="card-text">
               <p>Belongs to <%= meme.user.email.split('@')[0] %></p>
             </div>
