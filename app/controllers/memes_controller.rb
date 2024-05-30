@@ -10,6 +10,9 @@ class MemesController < ApplicationController
   end
 
   def new
+    if current_user.nil?
+      redirect_to new_user_session_path, notice: "You are not logged in!"
+    end
     @meme = Meme.new
   end
 
@@ -17,7 +20,7 @@ class MemesController < ApplicationController
     @meme = Meme.new(meme_params)
     @meme.user = current_user
     if @meme.save
-      redirect_to meme_path(@meme)  # correct, goes to show page but @meme has to yield ID
+      redirect_to meme_path(@meme) # correct, goes to show page but @meme has to yield ID
     else
       render :new, status: :unprocessable_entity
     end
