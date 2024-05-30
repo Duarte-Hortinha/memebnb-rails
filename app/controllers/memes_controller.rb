@@ -35,6 +35,6 @@ class MemesController < ApplicationController
   # end
 
   def meme_params
-    params.require(:meme).permit(:price, :description, :photo) # added photo because of cloudinary
+    params.require(:meme).permit(:price, :description, :photo, :title) # added photo because of cloudinary
   end
 end

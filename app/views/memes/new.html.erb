@@ -4,9 +4,10 @@
       <div class="bg-white rounded p-3 shadow">
         <h3 class="h3">Create a new meme</h3>
         <%= simple_form_for @meme do |f| %>
-          <%= f.input :price, placeholder: '$1,000,000' %>
-          <!--<span><%= f.input :image, as: :file %></span>-->
+          <%= f.input :title, placeholder: 'My garbage meme' %>
           <%= f.input :description, placeholder: 'This meme is garbage, no one will laugh at it' %>
+          <%= f.input :price, placeholder: '$1,000' %>
+          <!--<span><%= f.input :image, as: :file %></span>-->
           <%= f.input :photo, as: :file %>
           <%= f.submit class: 'btn btn-flat border border-danger rounded-pill'  %>
         <% end %>
