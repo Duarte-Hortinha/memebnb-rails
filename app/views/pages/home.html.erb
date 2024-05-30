@@ -22,7 +22,8 @@
             <% end  %>
           </div>
           <div class="card-body">
-            <h5 class="card-title"><%= meme.description %></h5>
+            <h5 class="card-title"><%= meme.title %></h5>
+            <p class="card-text">$<%= meme.price %>
             <div class="card-text">
               <p>Belongs to <%= meme.user.email.split('@')[0] %></p>
             </div>
