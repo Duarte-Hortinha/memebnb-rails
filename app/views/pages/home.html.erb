@@ -1,21 +1,36 @@
 
-<h1 class="h1 text-info">Landing Page</h1>
+
+<div class="banner" style="background-image: url(https://images.unsplash.com/photo-1507808973436-a4ed7b5e87c9?q=80&w=2960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+  <div class="container">
+    <h1 class="cover mb-4 d-flex align-items-center justify-content-center">Are you looking for a Tech meme?</h1>
+    <p class="cover mb-4 d-flex align-items-center justify-content-center">Rent the best tech meme</p>
+   <div class="cover mb-4 d-flex align-items-center justify-content-center"><%= link_to "See all funny memes", memes_path, class:"text-decoration-none btn btn-dark " %></div>
+  </div>
+</div>
+
+<h1 class="cover mt-5 mb-4 d-flex align-items-center justify-content-center">Top Memes</h1>
 
 <div class="container">
-  <img src="https://wallpapercave.com/wp/wp2568544.jpg" alt="Background Image"
-  class="image-background", width="100%">
-  <div class="d-flex justify-content-between">
+  <div class="row">
     <% @memes.each do |meme| %>
-      <div>
-        <%= meme.description %>
-        <%= meme.price %>
+      <div class="col-4 mb-3">
+        <div class="card">
+          <div class="card-image">
+            <% if meme.photo.key %>
+              <%= cl_image_tag meme.photo.key, crop: :fill, class: 'w-100 h-100' %>
+            <% else %>
+              <%= image_tag('default-meme.jpg') %>
+            <% end  %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= meme.description %></h5>
+            <div class="card-text">
+              <p>Belongs to <%= meme.user.email.split('@')[0] %></p>
+            </div>
+            <%= link_to "See detail here", meme_path(meme.id), class:"text-decoration-none btn btn btn-dark" %>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
 </div>
-
-
-<div class="image-to-test-cloudinary"><%= cl_image_tag("jseutn8fsq1qhjpeeuva",
-      width: 400, height: 300, crop: :fill) %></div>
-<h2 class="text-primary m-4"><%= link_to "Go to memes index page", memes_path %></h2>
-
