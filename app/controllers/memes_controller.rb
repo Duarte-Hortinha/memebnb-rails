@@ -3,6 +3,10 @@ class MemesController < ApplicationController
 
   def index
     @memes = Meme.all
+    if params[:query].present?
+      @memes = @memes.search_by_title(params[:query])
+    end
+
   end
 
   def show
