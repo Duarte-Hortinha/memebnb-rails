@@ -1,4 +1,5 @@
 
+<div class="container mt-5"><%= link_to "Go back", memes_path, class: "btn btn-dark"  %> </div>
 <div class="container" id="showcontainer">
   <div id="showcard">
     <h5 class="card-title"><strong><%= @meme.title.capitalize %></strong></h5>
@@ -25,6 +26,5 @@
         <%= render "bookings/new" %>
       </div>
     </div>
-    <%= link_to "Go back to memes index page", memes_path, class:"btn btn-info" %>
   </div>
 </div>

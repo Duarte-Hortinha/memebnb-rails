@@ -3,7 +3,7 @@
 <div class="banner" style="background-image: url(https://images.unsplash.com/photo-1507808973436-a4ed7b5e87c9?q=80&w=2960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
   <div class="container">
     <h1 class="cover mb-4 d-flex align-items-center justify-content-center">Are you looking for a Tech meme?</h1>
-   <div class="cover mb-4 d-flex align-items-center justify-content-center"><%= link_to "See all funny memes", memes_path, class:"text-decoration-none btn btn-dark " %></div>
+   <div class="cover mb-4 d-flex align-items-center justify-content-center"><%= link_to "See all funny memes", memes_path, class:"btn btn-info"%></div>
   </div>
 </div>
 
@@ -27,7 +27,7 @@
             <div class="card-text">
               <p>Belongs to <%= meme.user.email.split('@')[0] %></p>
             </div>
-            <%= link_to "See detail here", meme_path(meme.id), class:"text-decoration-none btn btn btn-dark" %>
+            <%= link_to "See detail here", meme_path(meme.id), class:"btn btn-info" %>
           </div>
         </div>
       </div>
