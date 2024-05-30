@@ -18,10 +18,10 @@
     </div>
   </div>
   <div id="checkcontainer">
-    <%= simple_form_for @booking do |f| %>
-    <%= f.input :start_date, as: :string %>
-    <%= f.input :end_date, as: :string %>
-    <%= f.submit 'Request this booking' %>
+    <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
+      <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startDate" } } %>
+      <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endDate" } } %>
+      <%= f.submit 'Request this booking' %>
     <% end %>
     <%# <div class="card" id="checkout"style="width: 18rem;">
       <div class="card-header d-flex justify-content-center">
