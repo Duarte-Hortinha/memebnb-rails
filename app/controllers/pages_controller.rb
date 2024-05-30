@@ -8,6 +8,8 @@ class PagesController < ApplicationController
   def mybooking
     @mybookings = Booking.where(user: current_user)
   end
+  def myself
 
+  end
 
 end
