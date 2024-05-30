@@ -27,7 +27,7 @@
 
 .login_button {
 
-  background-color: blue;
+  background-color: black;
   color: white;
   text-decoration: none;
   font-size: larger;
@@ -38,8 +38,13 @@
   border-radius: 20px;
 }
 .btn-primary{
-  background-color: rgb(54, 54, 216);
+  background-color:black;
   border-radius: 20px;
+  border: none;
+
+}
+.btn-primary:hover{
+  background-color: rgba(0, 0, 0, 0.548);
 }
 // .navbar_image{
 //   display: flex;

@@ -6,8 +6,10 @@ class PagesController < ApplicationController
     @memes = Meme.all.sample(3)
   end
   def mybooking
-    
-  end
 
+  end
+  def myself
+
+  end
 
 end
