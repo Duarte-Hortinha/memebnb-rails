@@ -1,48 +1,53 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
-# Create a user
-puts 'Create Users'
+Meme.destroy_all
 User.destroy_all
+
+puts 'Create Users'
 user = User.create!(
   email: 'user@example.com',
   password: 'password123'
 )
-# Create memes associated with the user
+
+puts 'Create memes'
+
 memes = [
   {
+    name: 'meme_1',
     price: 100,
-    description: 'Funny meme 1',
-    user_id: user.id
+    description: 'HTML and SCSS',
+    user_id: user.id,
+    img: "app/assets/images/bird-meme.jpg"
   },
   {
+    name: 'meme_2',
     price: 200,
-    description: 'Funny meme 2',
-    user_id: user.id
+    description: 'Find the bug',
+    user_id: user.id,
+    img: 'app/assets/images/code.png'
+
   },
   {
+    name: 'meme_3',
     price: 300,
-    description: 'Funny meme 3',
-    user_id: user.id
+    description: 'AI everywhere',
+    user_id: user.id,
+    img: 'app/assets/images/trompete.jpeg'
   },
   {
+    name: 'meme_4',
     price: 400,
-    description: 'Funny meme 4',
-    user_id: user.id
+    description: 'Escaping',
+    user_id: user.id,
+    img: 'app/assets/images/window.jpeg'
   }
 ]
 
-puts 'Create memes'
-Meme.destroy_all
 memes.each do |meme|
-  Meme.create!(price: meme[:price], description: meme[:description], user_id: user.id)
+  meme[:name] = Meme.new(price: meme[:price], description: meme[:description], user_id: user.id)
+  meme[:name].photo.attach(
+    io: File.open(Rails.root.join(meme[:img])),
+    filename: "#{meme[:name]}.jpg"
+  )
+  meme[:name].save!
 end
 
 puts 'Done seeding 🌱'
