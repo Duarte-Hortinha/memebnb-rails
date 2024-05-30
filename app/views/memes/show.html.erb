@@ -18,7 +18,12 @@
     </div>
   </div>
   <div id="checkcontainer">
-    <div class="card" id="checkout"style="width: 18rem;">
+    <%= simple_form_for @booking do |f| %>
+    <%= f.input :start_date, as: :string %>
+    <%= f.input :end_date, as: :string %>
+    <%= f.submit 'Request this booking' %>
+    <% end %>
+    <%# <div class="card" id="checkout"style="width: 18rem;">
       <div class="card-header d-flex justify-content-center">
         <p id="rentcardheader"><strong>Rent this meme</strong></p>
       </div>
@@ -27,7 +32,7 @@
         <li class="list-group-item">End date (will be simple form)</li>
       </ul>
       <a href="#" class="btn btn-primary">Purchase this meme (link to request)</a>
-    </div>
+    </div> %>
     <%= link_to "Go back to memes index page", memes_path, class:"btn btn-info" %>
   </div>
 </div>
