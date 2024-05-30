@@ -8,18 +8,33 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+
+
+
+
+
+
+
     <div class="row justify-content-center">
       <div class="col-sm-8">
         <%= form_with url: memes_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
                 params[:query],
-                class: "form-control",
-                placeholder: "Type a keyword"
+                class: "searchbar",
+                placeholder: "meme"
             %>
           <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
+
+
+
+
+
+
+
+
 
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -38,7 +53,7 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Sign in", "/users/sign_in", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-              <%= link_to "Sign in", "/users/sign_in", class: "dropdown-item" %>
+              <%= link_to "my booking", mybookings_path, class: "dropdown-item" %>
 
             </div>
           </li>
