@@ -29,6 +29,12 @@
       </ul>
       <a href="#" class="btn btn-primary">Purchase this meme (link to request)</a>
     </div> %>
+    <div class="card" id="bookingcard"style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Book this meme</strong></h5>
+        <%= render "bookings/new" %>
+      </div>
+    </div>
     <%= link_to "Go back to memes index page", memes_path, class:"btn btn-info" %>
   </div>
 </div>

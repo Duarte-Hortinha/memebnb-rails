@@ -10,6 +10,6 @@ export default class extends Controller {
 
   connect() {
     flatpickr(this.startDateTarget, {})
-    flatpickr(this.startDateTarget, {})
+    flatpickr(this.endDateTarget, {})
   }
 }
