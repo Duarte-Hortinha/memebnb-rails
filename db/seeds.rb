@@ -3,7 +3,7 @@ User.destroy_all
 
 puts 'Create Users'
 user = User.create!(
-  email: 'user@example.com',
+  email: 'sofia@example.com',
   password: 'password123'
 )
 
