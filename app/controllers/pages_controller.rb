@@ -6,7 +6,8 @@ class PagesController < ApplicationController
     @memes = Meme.all.sample(3)
   end
   def mybooking
-    @mybookings = Booking.where(user: current_user)
+    @confirmedbookings = Booking.where(user: current_user, confirmed: true)
+    @pendingbookings = Booking.where(user: current_user, confirmed: false)
   end
   def myself
 
