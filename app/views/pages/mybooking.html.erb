@@ -8,7 +8,12 @@
       <% else %>
         <ul class="list-group list-group-flush">
           <% @pendingbookings.each do |booking| %>
-            <li class="list-group-item list-group-item-light"><%= booking.meme.title %>-<%= booking.start_date %>-<%= booking.start_date %></li>
+            <li class="list-group-item list-group-item-light">
+              <p><strong><%= booking.meme.title %></strong></p>
+              <p> Booking start date: <%= booking.start_date %></p>
+              <p> Booking expiry date: <%= booking.start_date %></p>
+            </li>
+            <p></p>
           <% end %>
         </ul>
       <% end %>
@@ -20,7 +25,12 @@
       <% else %>
         <ul class="list-group list-group-flush">
           <% @confirmedbookings.each do |booking| %>
-            <li class="list-group-item list-group-item-success"><%= booking.meme.title %>-<%= booking.start_date %>-<%= booking.start_date %></li>
+            <li class="list-group-item list-group-item-success">
+              <p><strong><%= booking.meme.title %></strong></p>
+              <p> Booking start date: <%= booking.start_date %></p>
+              <p> Booking expiry date: <%= booking.start_date %></p>
+            </li>
+            <p></p>
           <% end %>
         </ul>
       <% end %>
