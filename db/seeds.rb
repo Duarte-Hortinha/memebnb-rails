@@ -4,7 +4,8 @@ User.destroy_all
 puts 'Create Users'
 user = User.create!(
   email: 'sofia@example.com',
-  password: 'password123'
+  password: 'password123',
+  username: "sofia"
 )
 
 puts 'Create memes'

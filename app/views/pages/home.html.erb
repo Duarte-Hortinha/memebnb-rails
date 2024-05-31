@@ -4,16 +4,16 @@
   <div class="container ">
     <h1 class="cover mb-4 d-flex align-items-center justify-content-center">Are you looking for a Tech meme?</h1>
    <div class="cover mb-4 d-flex align-items-center justify-content-center">
-    <span class="glow-on-hover">
-      <%= link_to "See all funny memes", memes_path, class:"m-1 btn d-flex align-items-center justify-content-center"%>
-      </span>
+      <div class="glow-on-hover d-flex justify-content-center">
+        <%= link_to "See all funny memes", memes_path, class:"m-1 btn d-flex align-items-center justify-content-center"%>
+      </div>
     </div>
   </div>
 </div>
 
 <h1 class="cover mt-5 mb-4 d-flex align-items-center justify-content-center">Top Memes</h1>
 
-<div class="container">
+<div class="container homecontainer">
   <div class="row">
     <% @memes.each do |meme| %>
       <div class="col-4 mb-3">
@@ -29,7 +29,7 @@
           <div class="card-body">
             <h5 class="card-title text-decoration-underline"><%= meme.title %></h5>
             <div class="card-text">
-              <p>Belongs to <%= meme.user.email.split('@')[0] %>  | $<%= meme.price %></p>
+              <p>Belongs to <%= meme.user.email.split('@')[0] %> | <strong>$<%= meme.price %></strong></p>
             </div>
             <%= link_to "See details here", meme_path(meme.id), class:"btn btn-info" %>
           </div>

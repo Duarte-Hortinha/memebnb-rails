@@ -5,9 +5,8 @@
   </div>
 </div>
 
-<div class="container py-5">
+<div class="container py-5 ">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <%= link_to "Go back", root_path, class: "btn btn-dark" %>
     <%= link_to "Create new meme", new_meme_path, class:"btn btn-info" %>
   </div>
 
@@ -26,7 +25,7 @@
           <div class="card-body">
             <h5 class="card-title text-decoration-underline"><%= meme.title %></h5>
             <div class="card-text">
-              <p>Belongs to <%= meme.user.email.split('@')[0] %>  | $<%= meme.price %></p>
+              <p>Belongs to <em><%= meme.user.email.split('@')[0] %></em> | <strong>$<%= meme.price %></strong></p>
             </div>
             <%= link_to "See details here", meme_path(meme.id), class:"btn btn-info" %>
           </div>

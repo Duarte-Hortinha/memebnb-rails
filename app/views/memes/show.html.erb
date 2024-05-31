@@ -12,7 +12,7 @@
         <p class="card-text"><%= @meme.description%></p>
         <div id="credentials">
           <p class="card-text" id="text1"><strong>Price:</strong> $<%=  @meme.price %></p>
-          <p class="card-text"><strong>User ID: </strong><%=  @meme.user_id %></p>
+          <p class="card-text">Belongs to <em><%= @meme.user.email.split('@')[0] %></em></p>
         </div>
       </div>
 
