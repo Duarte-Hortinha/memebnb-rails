@@ -1,8 +1,9 @@
 
-<div class="container mt-5"><%= link_to "Go back", memes_path, class: "btn btn-dark"  %> </div>
+<div class="container mt-5"><%= link_to "#", memes_path, class: "btn btn-dark"  %>
+
 <div class="container" id="showcontainer">
   <div id="showcard">
-    <h5 class="card-title"><strong>Edit<%= @meme.title.capitalize %></strong></h5>
+    <h4 class="card-title"><strong><%= @meme.title.capitalize %></strong></h4>
     <div class="card" style="width: 30rem; height; 40rem">
       <% if @meme.photo.key %>
         <%= cl_image_tag @meme.photo.key, crop: :fill, class: 'w-100' %>
@@ -16,15 +17,23 @@
           <p class="card-text"><strong>User ID: </strong><%=  @meme.user_id %></p>
         </div>
       </div>
+    </div>
+</div>
 
-    </div>
-  </div>
-  <div id="checkcontainer">
-    <div class="card" id="bookingcard"style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title"><strong>Book this meme</strong></h5>
-        <%= render "bookings/new" %>
+    <%# <div class="container"> %>
+        <%# <div class="row"> %>
+          <%# <div class="col-sm-12 col-md-6 offset-lg-4"> %>
+            <div class="bg-white rounded p-3 shadow">
+              <h3 class="card-title d-flex align-items-center justify-content-center p-2"><strong>Edit</strong></h3>
+              <h4 class="h3 d-flex align-items-center justify-content-center"><%= @meme.title.capitalize %> meme</h4>
+              <%= simple_form_for @meme do |f| %>
+                <%= f.input :description, placeholder: 'edit your description' %>
+                <%= f.input :price, placeholder: '$1,000' %>
+              <div class="d-flex justify-content-center"> <%= f.submit class: "btn btn-info w-100" %> </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+
 </div>
