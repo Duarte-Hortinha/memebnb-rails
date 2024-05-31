@@ -1,5 +1,6 @@
 class MemesController < ApplicationController
   # before_action :set_list, only: [:show, :destroy]
+  before_action :authenticate_user!, only: :update
 
   def index
     @memes = Meme.all
@@ -28,6 +29,22 @@ class MemesController < ApplicationController
       redirect_to meme_path(@meme) # correct, goes to show page but @meme has to yield ID
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @user = current_user
+    @meme = Meme.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @meme = @user.meme.find(params[:id])
+    if @meme.update_attributes(meme_params)
+      flash[:success] = "Meme updated!"
+      redirect_to user_memes_path(current_user)
+    else
+      render action: :edit
     end
   end
 
