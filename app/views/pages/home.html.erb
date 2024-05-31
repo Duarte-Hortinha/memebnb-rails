@@ -20,18 +20,18 @@
         <div class="card">
           <div class="card-image">
             <% if meme.photo.key %>
-              <%= cl_image_tag meme.photo.key, crop: :fill, class: 'w-100 h-100' %>
+              <!-- <%= cl_image_tag meme.photo.key, crop: :fill, class: 'w-100 h-100' %> -->
+              <%= cl_image_tag(meme.photo.key, :size => "355x250", :crop => :scale) %> <!-- Dimensions made at eye level, auto fill? -->
             <% else %>
               <%= image_tag('default-meme.jpg') %>
             <% end  %>
           </div>
           <div class="card-body">
-            <h5 class="card-title"><%= meme.title %></h5>
-            <p class="card-text">$<%= meme.price %>
+            <h5 class="card-title text-decoration-underline"><%= meme.title %></h5>
             <div class="card-text">
-              <p>Belongs to <%= meme.user.email.split('@')[0] %></p>
+              <p>Belongs to <%= meme.user.email.split('@')[0] %>  | $<%= meme.price %></p>
             </div>
-            <%= link_to "See detail here", meme_path(meme.id), class:"btn btn-info" %>
+            <%= link_to "See details here", meme_path(meme.id), class:"btn btn-info" %>
           </div>
         </div>
       </div>
