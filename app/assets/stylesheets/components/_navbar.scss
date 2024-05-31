@@ -25,6 +25,14 @@
   border-radius: 50%;
 }
 
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  h4 {
+    margin: 0;
+  }
+}
+
 .login_button {
 
   background-color: black;
@@ -53,3 +61,4 @@
 //   justify-content: flex-start;
 //   height: 50px;
 // }
+
