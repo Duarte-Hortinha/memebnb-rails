@@ -6,7 +6,12 @@
         <div class="card mb-3 w-100">
           <div class="row g-0">
             <div class="col-md-3 border border-start-0 border-top-0 border-bottom-0">
-              <%= image_tag "code.png", height: 200, width: "100%" %>
+              <% if meme.photo.key %>
+              <%= cl_image_tag(meme.photo.key, :size => "355x250", :crop => :scale) %>
+              <!-- <%= cl_image_tag meme.photo.key, crop: :fill, class: 'w-100 h-100' %> -->
+            <% else %>
+              <%= image_tag('default-meme.jpg') %>
+            <% end  %>
             </div>
             <div class="col-md-4 border border-start-0 border-top-0 border-bottom-0">
               <div class="card-body">
