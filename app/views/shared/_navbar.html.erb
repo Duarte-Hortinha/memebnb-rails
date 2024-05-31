@@ -56,7 +56,7 @@
               <%= link_to "Sign in", "/users/sign_in", class: "dropdown-item" unless current_user %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
               <%= link_to "My bookings", mybookings_path, class: "dropdown-item" %>
-
+              <%= link_to "My memes", mymemes_path, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
