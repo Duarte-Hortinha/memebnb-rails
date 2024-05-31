@@ -11,6 +11,7 @@
   </div>
 
   <div class="row">
+  <% if @memes.size >= 1 %>
     <% @memes.each do |meme| %>
     <div class="col-4 mb-3">
         <div class="card">
@@ -30,6 +31,11 @@
             <%= link_to "See details here", meme_path(meme.id), class:"btn btn-info" %>
           </div>
         </div>
+      </div>
+    <% end %>
+    <% else  %>
+      <div style="display: flex; justify-content:center" >
+        <h2>THERE ARE NO MEMES</h2>
       </div>
     <% end %>
   </div>
