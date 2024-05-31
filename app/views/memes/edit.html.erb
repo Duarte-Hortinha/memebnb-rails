@@ -1,5 +1,5 @@
 
-<div class="container mt-5"><%= link_to "#", memes_path, class: "btn btn-dark"  %>
+<div class="container mt-5"><%= link_to "go back", mymemes_path, class: "btn btn-dark"  %>
 
 <div class="container" id="showcontainer">
   <div id="showcard">
@@ -29,7 +29,8 @@
               <%= simple_form_for @meme do |f| %>
                 <%= f.input :description, placeholder: 'edit your description' %>
                 <%= f.input :price, placeholder: '$1,000' %>
-              <div class="d-flex justify-content-center"> <%= f.submit class: "btn btn-info w-100" %> </div>
+              <div class="d-flex justify-content-center mb-3"> <%= f.submit class: "btn btn-info w-100" %> </div>
+              <div class="d-flex justify-content-center mb-3 btn btn-danger w-100"><%= link_to "Delete this meme",  meme_path(@meme),   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
               <% end %>
             </div>
           </div>
