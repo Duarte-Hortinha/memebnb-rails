@@ -20,6 +20,9 @@
     <div class="flex-grow-1 mt-2">
       <%= yield %>
     </div>
-    <%= render "shared/footer" %>
+    <% unless controller_name == "pages" && action_name =="home" %>
+      <%= render "partials/back" %>
+    <% end %>
+      <%= render "shared/footer" %>
   </body>
 </html>
