@@ -9,8 +9,11 @@ class PagesController < ApplicationController
     @confirmedbookings = Booking.where(user: current_user, confirmed: true)
     @pendingbookings = Booking.where(user: current_user, confirmed: false)
   end
-  def myself
 
+  def myself
   end
 
+  def mymemes
+    @my_memes = Meme.where(user: current_user)
+  end
 end
