@@ -1,23 +1,37 @@
-
-<div class="card mb-3">
-  <div class="row g-0">
-    <% @my_memes.each  do |meme| %>
-      <div class="col-md-3">
-       <%= image_tag "code.png", height: 200, width: "100%" %>
-      </div>
-      <div class="col-md-3">
-        <div class="card-body">
-          <h5 class="card-title"><%= meme.title %></h5>
-          <p class="card-text">$<%= meme.price %></p>
-          <P>Belongs to <%= meme.user.email.split('@')[0] %></p>
-          <p class="card-text"><small class="text-body-secondary">$<%= meme.price %></small></p>
+<div class="container text-center my-5">
+  <h1 class="my-5">My Memes 😂</h1>
+  <div class="row">
+    <div class="col">
+      <% @my_memes.each  do |meme| %>
+        <div class="card mb-3 w-100">
+          <div class="row g-0">
+            <div class="col-md-3 border border-start-0 border-top-0 border-bottom-0">
+              <%= image_tag "code.png", height: 200, width: "100%" %>
+            </div>
+            <div class="col-md-4 border border-start-0 border-top-0 border-bottom-0">
+              <div class="card-body">
+                <h5 class="card-title"><%= meme.title %></h5>
+                <p class="card-text">$<%= meme.price %></p>
+                <div class="d-flex gap-2 align-items-center justify-content-center">
+                  <%= link_to "Update", edit_meme_path(meme.id), class:"btn btn-info" %>
+                  <%= link_to "Delete",  meme_path(meme),   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <h5>How booked this meme?</h5>
+              <% Booking.where(meme: meme).each do |booking| %>
+                <div class="card">
+                  <div>
+                    <p class="m-0"> <%= booking.user.email %></p>
+                    <p class="m-0"> From <%= booking.start_date %> to <%= booking.end_date  %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        
-        <%= link_to "update", edit_memes_path(meme.id), class:"btn btn-info" %>
-        <%= link_to "Delete", delete_path(meme.id), class:"btn btn-danger" %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
