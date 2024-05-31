@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def index
     @bookings = Booking.all
   end
@@ -35,5 +34,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date) # added photo because of cloudinary
   end
-
 end
