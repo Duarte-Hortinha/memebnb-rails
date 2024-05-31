@@ -3,11 +3,15 @@
   <div class="container" id="listscont">
     <div class="container" id="pendingcont">
       <h3>Pending bookings</h3>
-      <ul class="list-group list-group-flush">
-        <% @pendingbookings.each do |booking| %>
-          <li class="list-group-item list-group-item-light"><%= booking.meme.title %>-<%= booking.start_date %>-<%= booking.start_date %></li>
-        <% end %>
-      </ul>
+      <% if @pendingbookings.empty? %>
+        <%= "You don't have any pending bookings yet, what are you waiting for!?" %>
+      <% else %>
+        <ul class="list-group list-group-flush">
+          <% @pendingbookings.each do |booking| %>
+            <li class="list-group-item list-group-item-light"><%= booking.meme.title %>-<%= booking.start_date %>-<%= booking.start_date %></li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
     <div class="container" id="confirmedcont">
       <h3>Confirmed bookings</h3>
