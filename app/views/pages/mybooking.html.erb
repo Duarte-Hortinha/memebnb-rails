@@ -1,8 +1,25 @@
-<h1>My Bookings</h1>
-
-<h2>To fill with the bookings of the user - in relation to other people's memes</h2>
-<ul>
-<% @mybookings.each do |booking| %>
-  <li><%= booking.meme.title %>-<%= booking.start_date %>-<%= booking.start_date %></li>
-<% end %>
-</ul>
+<div class="container" id="bookingscont">
+  <h1>My bookings</h1>
+  <div class="container" id="listscont">
+    <div class="container" id="pendingcont">
+      <h3>Pending bookings</h3>
+      <ul class="list-group list-group-flush">
+        <% @pendingbookings.each do |booking| %>
+          <li class="list-group-item list-group-item-light"><%= booking.meme.title %>-<%= booking.start_date %>-<%= booking.start_date %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="container" id="confirmedcont">
+      <h3>Confirmed bookings</h3>
+      <% if @confirmedbookings.empty? %>
+        <%= "You don't have any confirmed bookings yet." %>
+      <% else %>
+        <ul class="list-group list-group-flush">
+          <% @confirmedbookings.each do |booking| %>
+            <li class="list-group-item list-group-item-success"><%= booking.meme.title %>-<%= booking.start_date %>-<%= booking.start_date %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
