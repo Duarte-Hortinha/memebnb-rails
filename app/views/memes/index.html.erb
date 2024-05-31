@@ -26,7 +26,7 @@
           <div class="card-body">
             <h5 class="card-title text-decoration-underline"><%= meme.title %></h5>
             <div class="card-text">
-              <p>Belongs to <%= meme.user.email.split('@')[0] %>  | $<%= meme.price %></p>
+              <p>Belongs to <em><%= meme.user.email.split('@')[0] %></em> | <strong>$<%= meme.price %></strong></p>
             </div>
             <%= link_to "See details here", meme_path(meme.id), class:"btn btn-info" %>
           </div>
